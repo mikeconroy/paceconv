@@ -1,0 +1,22 @@
+package view
+
+templ ShowIndex() {
+    @Base(){
+        <div>
+            <h1>Pace Converter</h1>
+            <h3>Distance to Pace</h3>
+            <form hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML" hx-indicator="#spinner">
+                <input type="text" id="distance" name="distance" placeholder="Distance"></input>
+                <input type="text" id="duration" name="duration" placeholder="Duration in Minutes"></input>
+                <select name="units" id="units">
+                    <option value="miles">Miles</option>
+                    <option value="kilometres">Kilometres</option>
+                </select>
+                <input type="submit" value="Convert"></input>
+            </form>
+            // <img id="spinner" class="htmx-indicator" src="/static/spinner.gif"/>
+            <div id="distanceToPace" name="distanceToPace">
+            </div>
+        </div>
+    }
+}

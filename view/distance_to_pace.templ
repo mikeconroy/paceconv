@@ -1,0 +1,15 @@
+package view
+
+import (
+    "github.com/mikeconroy/paceconv/types"
+    "fmt"
+)
+
+templ ShowDistanceToPace(req types.DistanceToPaceRequest, paces []types.Pace) {
+    <h4>{fmt.Sprintf("%f", req.Distance)} {req.Units} in {fmt.Sprintf("%f", req.Duration)} minutes</h4>
+    <ul>
+    for _, pace := range paces {
+       <li>{ pace.ReadableTime } min/{pace.Unit}</li> 
+    }
+    </ul>
+}
