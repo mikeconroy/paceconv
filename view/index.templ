@@ -2,12 +2,11 @@ package view
 
 templ ShowIndex() {
     @Base(){
-        <div>
             <h1>Pace Converter</h1>
-            <h3>Distance to Pace</h3>
+            <h2>Distance to Pace</h2>
             <form hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML" hx-indicator="#spinner">
-                <input type="text" id="distance" name="distance" placeholder="Distance"></input>
-                <input type="text" id="duration" name="duration" placeholder="Duration in Minutes"></input>
+                <input type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
+                <input type="text" id="duration" name="duration" placeholder="Duration - 4h30m20s"></input>
                 <select name="units" id="units">
                     <option value="miles">Miles</option>
                     <option value="kilometres">Kilometres</option>
@@ -17,6 +16,29 @@ templ ShowIndex() {
             // <img id="spinner" class="htmx-indicator" src="/static/spinner.gif"/>
             <div id="distanceToPace" name="distanceToPace">
             </div>
-        </div>
+
+            <h2>Distance Converter</h2>
+            <form hx-post="/convert/distance" hx-target="#distanceConversion" hx-swap="innerHTML">
+                <input type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
+                <select name="units" id="units">
+                    <option value="miles">Miles</option>
+                    <option value="kilometres">Kilometres</option>
+                </select>
+                <input type="submit" value="Convert"></input>
+            </form>
+            <div id="distanceConversion" name="distanceConversion">
+            </div> 
+
+            <h2>Temperature Converter</h2>
+            <form hx-post="/convert/temperature" hx-target="#temperatureConversion" hx-swap="innerHTML">
+                <input type="text" id="temperature" name="temperature" placeholder="Temperature - 2"></input>
+                <select name="units" id="units">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                </select>
+                <input type="submit" value="Convert"></input>
+            </form>
+            <div id="temperatureConversion" name="temperatureConversion">
+            </div> 
     }
 }

@@ -4,4 +4,5 @@ A basic webapp to learn [Templ](https://github.com/a-h/templ) and [HTMX](https:/
 
 ### Running
 `make`
+
 Then visit `localhost:3000` in the browser.

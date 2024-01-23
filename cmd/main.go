@@ -11,6 +11,8 @@ func main() {
 	conversionHandler := &handler.ConversionHandler{}
 	e.GET("/", indexHandler.HandleIndex)
 	e.POST("/convert/distance-to-pace", conversionHandler.HandleDistanceToPace)
+	e.POST("/convert/distance", conversionHandler.HandleDistanceConversion)
+	e.POST("/convert/temperature", conversionHandler.HandleTemperatureConversion)
 	e.Static("/static", "assets")
 	e.Logger.Fatal(e.Start(":3000"))
 }
