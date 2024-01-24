@@ -4,13 +4,14 @@ templ ShowIndex() {
     @Base(){
             <h1>Pace Converter</h1>
             <h2>Distance to Pace</h2>
-            <form hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML" hx-indicator="#spinner">
+            <form hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML">
+            // hx-indicator="#spinner">
                 <input type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
-                <input type="text" id="duration" name="duration" placeholder="Duration - 4h30m20s"></input>
                 <select name="units" id="units">
                     <option value="miles">Miles</option>
                     <option value="kilometres">Kilometres</option>
                 </select>
+                <input type="text" id="duration" name="duration" placeholder="Duration - 4h30m20s"></input>
                 <input type="submit" value="Convert"></input>
             </form>
             // <img id="spinner" class="htmx-indicator" src="/static/spinner.gif"/>

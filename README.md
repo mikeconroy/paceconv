@@ -6,3 +6,8 @@ A basic webapp to learn [Templ](https://github.com/a-h/templ) and [HTMX](https:/
 `make`
 
 Then visit `localhost:3000` in the browser.
+
+
+#### Notes
+Auth - https://www.sohamkamani.com/golang/session-cookie-authentication/
+mypace.fit

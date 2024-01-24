@@ -7,10 +7,23 @@ import (
 
 templ ShowDistanceToPace(req types.DistanceToPaceRequest, paces []types.Pace) {
     <h4>{fmt.Sprintf("%.1f", req.Distance)} {req.DistanceUnits} in {req.Duration.String()} </h4>
-    <ul>
-    for _, pace := range paces {
-       <li>{ pace.ReadableTime } min/{pace.Unit}</li> 
-    }
-    </ul>
+    // <ul>
+    // for _, pace := range paces {
+    //    <li>{ pace.ReadableTime } min/{pace.Unit}</li> 
+    // }
+    // </ul>
+
+    <table style="border:1px solid black;">
+        <tr>
+            <th style="width: 5%">Distance</th>
+            <th style="width: 5%">Duration</th>
+        </tr>
+        for _, pace := range paces {
+            <tr>
+                <td style="border:1px solid black;">{pace.Unit}</td>
+                <td style="border:1px solid black;">{pace.ReadableTime}</td>
+            </tr>
+        }
+    </table>
 
 }
