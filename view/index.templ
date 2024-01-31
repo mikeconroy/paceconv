@@ -2,17 +2,31 @@ package view
 
 templ ShowIndex() {
     @Base(){
-            <h1>Pace Converter</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <span class="navbar-brand mb-0 h1" style="margin-left:20px">Pace Converter</span>
+            </nav>
+
             <h2>Distance to Pace</h2>
-            <form hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML">
+            <form class="row g-3" hx-post="/convert/distance-to-pace" hx-target="#distanceToPace" hx-swap="innerHTML">
             // hx-indicator="#spinner">
-                <input type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
-                <select name="units" id="units">
-                    <option value="miles">Miles</option>
-                    <option value="kilometres">Kilometres</option>
-                </select>
-                <input type="text" id="duration" name="duration" placeholder="Duration - 4h30m20s"></input>
-                <input type="submit" value="Convert"></input>
+                <div class="col-auto">
+                    <label for="distance" class="visually-hidden">Distance</label>
+                    <input class="form-control" type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
+                </div>
+                <div class="col-auto">
+                    <label for="units" class="visually-hidden">Units</label>
+                    <select class="form-control" name="units" id="units">
+                        <option value="miles">Miles</option>
+                        <option value="kilometres">Kilometres</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="duration" class="visually-hidden">Duration</label>
+                    <input class="form-control" type="text" id="duration" name="duration" placeholder="Duration - 4h30m20s"></input>
+                </div>
+                <div class="col-auto">
+                    <input class="btn btn-primary mb-2" type="submit" value="Convert"></input>
+                </div>
             </form>
             // <img id="spinner" class="htmx-indicator" src="/static/spinner.gif"/>
             <div id="distanceToPace" name="distanceToPace">
