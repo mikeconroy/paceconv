@@ -1,0 +1,25 @@
+package sections
+
+templ ShowDistanceConverter() {
+    <h2 class="d-flex justify-content-center mt-3">Distance Converter</h2>
+    <div class="d-flex justify-content-center">
+        <form class="row g-3" hx-post="/convert/distance" hx-target="#distanceConversion" hx-swap="innerHTML">
+            <div class="col-auto">
+                <label for="distance" class="visually-hidden">Distance</label>
+                <input class="form-control" type="text" id="distance" name="distance" placeholder="Distance - 26.2"></input>
+            </div>
+            <div class="col-auto">
+                <label for="units" class="visually-hidden">Distance</label>
+                <select class="form-control" name="units" id="units">
+                    <option value="miles">Miles</option>
+                    <option value="kilometres">Kilometres</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-primary mb-2"type="submit" value="Convert"></input>
+            </div>
+        </form>
+    </div>
+    <div id="distanceConversion" name="distanceConversion">
+    </div> 
+}

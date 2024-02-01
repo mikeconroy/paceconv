@@ -1,0 +1,10 @@
+package results
+
+import (
+    "github.com/mikeconroy/paceconv/types"
+    "fmt"
+)
+
+templ ShowTemperatureConversion(req types.Temperature, res types.Temperature) {
+    <h5 class="d-flex justify-content-center">{fmt.Sprintf("%.1f", req.Value)}° {req.Units} is {fmt.Sprintf("%.1f", res.Value)}° {res.Units}</h5>
+}

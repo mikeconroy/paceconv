@@ -1,0 +1,25 @@
+package sections
+
+templ ShowTemperatureConverter() {
+    <h2 class="d-flex justify-content-center mt-3">Temperature Converter</h2>
+    <div class="d-flex justify-content-center">
+        <form class="row g-3" hx-post="/convert/temperature" hx-target="#temperatureConversion" hx-swap="innerHTML">
+            <div class="col-auto">
+                <label for="temperature" class="visually-hidden">Temperature</label>
+                <input class="form-control" type="text" id="temperature" name="temperature" placeholder="Temperature - 2"></input>
+            </div>
+            <div class="col-auto">
+                <label for="tempUnits" class="visually-hidden">Temperature Units</label>
+                <select class="form-control" name="units" id="tempUnits">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-primary mb-2" type="submit" value="Convert"></input>
+            </div>
+        </form>
+    </div>
+    <div id="temperatureConversion" name="temperatureConversion">
+    </div> 
+}

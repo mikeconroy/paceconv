@@ -1,0 +1,28 @@
+package results
+
+import (
+    "github.com/mikeconroy/paceconv/types"
+    "fmt"
+)
+
+templ ShowDistanceToPace(req types.DistanceToPaceRequest, paces []types.Pace) {
+    <h5 class="d-flex justify-content-center">{fmt.Sprintf("%.1f", req.Distance)} {req.DistanceUnits} in {req.Duration.String()} </h5>
+    <div class="d-flex justify-content-center">
+        <table class="table table-striped w-auto">
+            <thead>
+                <tr>
+                    <th scope="col">Distance</th>
+                    <th scope="col">Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                for _, pace := range paces {
+                    <tr>
+                        <td>{pace.Unit}</td>
+                        <td>{pace.ReadableTime}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,10 @@
+package results
+
+import (
+    "github.com/mikeconroy/paceconv/types"
+    "fmt"
+)
+
+templ ShowDistanceConversion(req types.Distance, res types.Distance) {
+    <h5 class="d-flex justify-content-center">{fmt.Sprintf("%.2f", req.Value)} {req.Units} is {fmt.Sprintf("%.2f", res.Value)} {res.Units}</h5>
+}

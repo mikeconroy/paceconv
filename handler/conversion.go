@@ -8,7 +8,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/mikeconroy/paceconv/services"
 	"github.com/mikeconroy/paceconv/types"
-	"github.com/mikeconroy/paceconv/view/segments"
+	"github.com/mikeconroy/paceconv/view/results"
 )
 
 type ConversionHandler struct{}
@@ -37,7 +37,7 @@ func (h *ConversionHandler) HandleDistanceToPace(c echo.Context) error {
 	}
 
 	res := services.ConvertDistanceToPace(req)
-	segment := segments.ShowDistanceToPace(req, res)
+	segment := results.ShowDistanceToPace(req, res)
 	return segment.Render(c.Request().Context(), c.Response())
 }
 
@@ -67,7 +67,7 @@ func (h *ConversionHandler) HandleDistanceConversion(c echo.Context) error {
 		return fmt.Errorf("Unrecognised distance units")
 	}
 
-	segment := segments.ShowDistanceConversion(req, res)
+	segment := results.ShowDistanceConversion(req, res)
 	return segment.Render(c.Request().Context(), c.Response())
 }
 
@@ -97,6 +97,6 @@ func (h *ConversionHandler) HandleTemperatureConversion(c echo.Context) error {
 		return fmt.Errorf("Unrecognised temperature unit.")
 	}
 
-	segment := segments.ShowTemperatureConversion(req, res)
+	segment := results.ShowTemperatureConversion(req, res)
 	return segment.Render(c.Request().Context(), c.Response())
 }
