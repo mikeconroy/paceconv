@@ -1,0 +1,21 @@
+package sections
+
+templ ShowHRZonesCalculator() {
+    <h2 class="d-flex justify-content-center mt-3">Heart Rate Zones Calculator</h2>
+    <div class="d-flex justify-content-center mb-2">
+        Maximum Heart Rate can be estimated by subtracting your age from 220
+    </div>
+    <div class="d-flex justify-content-center">
+        <form class="row g-3" hx-post="/convert/heart-rate-zones" hx-target="#heartRateZones" hx-swap="innerHTML">
+            <div class="col-auto">
+                <label for="maxHeartRate" class="visually-hidden">Maximum Heart Rate</label>
+                <input class="form-control" type="text" id="maxHeartRate" name="maxHeartRate" placeholder="Maximum Heart Rate"></input>
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-primary mb-2" type="submit" value="Calculate"></input>
+            </div>
+        </form>
+    </div>
+    <div id="heartRateZones" name="heartRateZones">
+    </div> 
+}

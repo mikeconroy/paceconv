@@ -1,0 +1,50 @@
+package results
+
+import (
+    "github.com/mikeconroy/paceconv/types"
+    "fmt"
+)
+
+templ ShowHRZones(zones types.HeartRateZones) {
+    <h5 class="d-flex justify-content-center">Estimated zones based on a Maximum Heart Rate of {fmt.Sprintf("%d", zones.MaxHr)}</h5>
+    <div class="d-flex justify-content-center">
+        <table class="table table-striped w-auto" style="table-layout:fixed">
+            <thead>
+                <tr>
+                    <th scope="col" >Zone</th>
+                    <th scope="col" >Intensity</th>
+                    <th scope="col" >Type</th>
+                    <th scope="col" >Max HR %</th>
+                    <th scope="col" >Heart Rate</th>
+                </tr>
+                <tbody>
+                    for _, zone := range zones.Zones {
+                        <tr>
+                            <td>{fmt.Sprintf("%d", zone.ZoneNum)}</td>
+                            <td>{zone.Intensity}</td>
+                            <td>{zone.Type}</td>
+                            <td>{fmt.Sprintf("%d%% - %d%%", zone.MinEffort, zone.MaxEffort)}</td>
+                            <td>{fmt.Sprintf("%d - %d", zone.MinHr, zone.MaxHr)}</td>
+                        </tr>
+                    }
+                </tbody>
+            </thead>
+        </table>
+        // <table class="table table-striped w-auto">
+        //     <thead>
+        //         <tr>
+        //             <th scope="col">Distance</th>
+        //             <th scope="col">Duration</th>
+        //         </tr>
+        //     </thead>
+        //     <tbody>
+        //         for _, pace := range paces {
+        //             <tr>
+        //                 <td>{pace.Unit}</td>
+        //                 <td>{pace.ReadableTime}</td>
+        //             </tr>
+        //         }
+        //     </tbody>
+        // </table>
+    </div>
+}

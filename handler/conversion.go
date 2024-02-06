@@ -100,3 +100,17 @@ func (h *ConversionHandler) HandleTemperatureConversion(c echo.Context) error {
 	segment := results.ShowTemperatureConversion(req, res)
 	return segment.Render(c.Request().Context(), c.Response())
 }
+
+func (h *ConversionHandler) HandleHeartRateZones(c echo.Context) error {
+	fmt.Println("Handling Heart Rate Zones")
+	maxHrStr := c.FormValue("maxHeartRate")
+	fmt.Println(maxHrStr)
+	maxHr, err := strconv.Atoi(maxHrStr)
+	if err != nil {
+		return fmt.Errorf("Unable to convert maxHr to Int.")
+	}
+	res := services.CalculateHeartRateZones(maxHr)
+
+	segment := results.ShowHRZones(res)
+	return segment.Render(c.Request().Context(), c.Response())
+}
