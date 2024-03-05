@@ -3,6 +3,8 @@
 A basic webapp to learn [Templ](https://github.com/a-h/templ) and [HTMX](https://htmx.org/).
 
 ### Running
+Ensure Templ is installed and available on the PATH.
+
 `make`
 
 Then visit `localhost:3000` in the browser.
